@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { ShoppingCart } from "lucide-react";
+import Image from "next/image";
+
 
 interface Product {
   id: number;
@@ -123,10 +125,12 @@ const AllProducts: React.FC = () => {
               className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
             >
               <div className="relative group">
-                <Link href="./SingleProduct" passHref>
-                  <img
+                <Link href="./SingleProduct">
+                  <Image
                     src={product.image}
                     alt={product.name}
+                    width={500}
+                    height={500}
                     className="w-full h-48 sm:h-56 object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </Link>
@@ -155,7 +159,7 @@ const AllProducts: React.FC = () => {
                   )}
                 </div>
                 <div className="mt-4 flex justify-center sm:justify-end">
-                  <Link href="/CartPage" passHref>
+                  <Link href="/CartPage">
                     <button
                       aria-label={`Add ${product.name} to cart`}
                       className="flex items-center space-x-2 text-gray-600 hover:text-teal-500"
