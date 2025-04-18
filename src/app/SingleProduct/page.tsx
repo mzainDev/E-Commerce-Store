@@ -1,9 +1,120 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import FeaturedSec from "@/components/FeaturedSec";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../redux/slices/CartSlice";
 
-const SingleProduct = () => {
+interface Product {
+  id: number;
+  name: string;
+  price: string;
+  image: string;
+  tag: "New" | "Sales" | null;
+  discountPrice: string | null;
+}
+
+const products: Product[] = [
+  {
+    id: 1,
+    name: "Library Stool Chair",
+    price: "$20",
+    image: "/p1.jpg",
+    tag: "New",
+    discountPrice: null,
+  },
+  {
+    id: 2,
+    name: "Library Stool Chair",
+    price: "$20",
+    image: "/p2.png",
+    tag: "Sales",
+    discountPrice: "$39",
+  },
+  {
+    id: 3,
+    name: "Library Stool Chair",
+    price: "$20",
+    image: "/p3.png",
+    tag: null,
+    discountPrice: null,
+  },
+  {
+    id: 4,
+    name: "Library Stool Chair",
+    price: "$20",
+    image: "/p4.png",
+    tag: null,
+    discountPrice: null,
+  },
+  {
+    id: 5,
+    name: "Library Stool Chair",
+    price: "$20",
+    image: "/ti1.png",
+    tag: null,
+    discountPrice: null,
+  },
+  {
+    id: 6,
+    name: "Library Stool Chair",
+    price: "$20",
+    image: "/ti2.png",
+    tag: "New",
+    discountPrice: null,
+  },
+  {
+    id: 7,
+    name: "Library Stool Chair",
+    price: "$20",
+    image: "/ti3.png",
+    tag: "Sales",
+    discountPrice: "$39",
+  },
+  {
+    id: 8,
+    name: "Library Stool Chair",
+    price: "$20",
+    image: "/image9.png",
+    tag: null,
+    discountPrice: null,
+  },
+  {
+    id: 9,
+    name: "Library Stool Chair",
+    price: "$20",
+    image: "/image/h1.png",
+    tag: null,
+    discountPrice: null,
+  },
+  {
+    id: 10,
+    name: "Library Stool Chair",
+    price: "$20",
+    image: "/image/h2.png",
+    tag: null,
+    discountPrice: null,
+  },
+  {
+    id: 11,
+    name: "Library Stool Chair",
+    price: "$20",
+    image: "/image/h3.png",
+    tag: null,
+    discountPrice: null,
+  },
+  {
+    id: 12,
+    name: "Library Stool Chair",
+    price: "$20",
+    image: "/image/h5.png",
+    tag: null,
+    discountPrice: null,
+  },
+];
+const SingleProduct:React.FC = () => {
+  const dispatch = useDispatch();
   return (
     <div className="">
       <div className="max-w-7xl pr-40 pl-40">
@@ -31,7 +142,10 @@ const SingleProduct = () => {
               adipiscing elit.
             </p>
 
-            <Button className="bg-emerald-500 hover:bg-emerald-600 text-white w-full md:w-auto">
+            <Button
+              onClick={() => dispatch(addToCart({}))}
+              className="bg-emerald-500 hover:bg-emerald-600 text-white w-full md:w-auto"
+            >
               Add To Cart
             </Button>
           </div>
@@ -41,7 +155,7 @@ const SingleProduct = () => {
         <div className="bg-white w-full">
           <FeaturedSec />
         </div>
-      </div>  
+      </div>
     </div>
   );
 };
