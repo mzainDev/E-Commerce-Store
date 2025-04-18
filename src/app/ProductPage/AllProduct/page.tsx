@@ -2,7 +2,6 @@ import Link from "next/link";
 import { ShoppingCart } from "lucide-react";
 import Image from "next/image";
 
-
 interface Product {
   id: number;
   name: string;

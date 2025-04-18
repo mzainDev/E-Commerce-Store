@@ -1,5 +1,9 @@
 import React from "react";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { ShoppingCart } from "lucide-react";
+import Link from "next/link";
+
 
 const FeaturedSec: React.FC = () => {
   const products = [
@@ -64,6 +68,14 @@ const FeaturedSec: React.FC = () => {
                 <p className="text-gray-600 font-medium text-center sm:text-left">
                   {product.price}
                 </p>
+              </div>
+              {/* Add to Cart Button */}
+              <div className="mt-2 flex justify-start">
+                <Link href="/SingleProduct">
+                  <Button variant="outline" size="icon">
+                    <ShoppingCart className="hover:text-teal-500"/>
+                  </Button>
+                </Link>
               </div>
             </div>
           ))}
