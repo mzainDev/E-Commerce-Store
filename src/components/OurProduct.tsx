@@ -124,7 +124,7 @@ const OurProducts = () => {
 
                 {/* Add to Cart Button */}
                 <div className="mt-4 flex justify-end">
-                  <Link href={'/SingleProduct/'}>
+                  <Link href={"/SingleProduct/"}>
                     <Button variant="outline" size="icon">
                       <ShoppingCart className="hover:text-teal-500" />
                     </Button>
