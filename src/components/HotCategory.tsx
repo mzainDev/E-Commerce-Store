@@ -18,12 +18,12 @@ const categories = [
   },
   {
     id: 4,
-    imageUrl: "/image/h2.png",
+    imageUrl: "/image/h2.jpg",
     alt: "Grey Upholstered Chair",
   },
   {
     id: 5,
-    imageUrl: "/image/h1.png",
+    imageUrl: "/image/h1.jpg",
     alt: "White Wooden Chair 2",
   },
 ];

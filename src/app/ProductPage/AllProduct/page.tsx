@@ -127,7 +127,7 @@ const products: Product[] = [
     id: 12,
     name: "Library Stool Chair",
     price: "$20",
-    image: "/image/h5.png",
+    image: "/image/h5.jpg",
     tag: null,
     discountPrice: null,
     description:

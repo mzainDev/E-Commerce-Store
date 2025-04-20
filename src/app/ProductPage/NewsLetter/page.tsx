@@ -41,11 +41,11 @@ const NewsletterInstagram: React.FC = () => {
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
           {[
             "/p1.jpg",
-            "/p2.png",
-            "/p3.png",
-            "/p4.png",
-            "/ti1.png",
-            "/ti2.png",
+            "/p2.jpg",
+            "/p3.jpg",
+            "/p4.jpg",
+            "/ti1.jpg",
+            "/ti2.jpg",
           ].map((image, index) => (
             <div
               key={index}

@@ -7,19 +7,19 @@ const TopCategories: React.FC = () => {
     {
       id: 1,
       image: "/ti1.jpg",
-      title: "Wing Chair",
+      title: "Customized",
       productCount: 3584,
     },
     {
       id: 2,
       image: "/ti2.jpg",
-      title: "Wooden Chair",
+      title: "Product",
       productCount: 157,
     },
     {
       id: 3,
       image: "/ti3.jpg",
-      title: "Desk Chair",
+      title: "Product",
       productCount: 154,
     },
   ];
