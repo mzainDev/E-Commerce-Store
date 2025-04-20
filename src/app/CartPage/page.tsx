@@ -1,17 +1,6 @@
 "use client";
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "@/app/redux/store";
-import { removeFromCart } from "@/app/redux/slices/CartSlice";
 import Image from "next/image";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardContent,
-  CardFooter,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { useCart } from "@/context/CartContext";
 import Link from "next/link";
 import { Trash2 } from "lucide-react";
@@ -22,7 +11,6 @@ const CartPage: React.FC = () => {
     removeFromCart: useCartRemoveFromCart,
     updateQuantity,
   } = useCart();
-  const dispatch = useDispatch();
 
   const calculateTotal = () => {
     return cartItems.reduce((total, item) => {
