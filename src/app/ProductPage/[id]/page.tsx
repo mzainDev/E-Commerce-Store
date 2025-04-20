@@ -2,7 +2,6 @@
 
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import Link from "next/link";
 import { ShoppingCart } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import { use } from "react";
@@ -139,8 +138,6 @@ const products: Product[] = [
     description:
       "Elegant stool chair with a sophisticated design and superior comfort.",
   },
-
-  // ... other products
 ];
 
 export default function SingleProduct({

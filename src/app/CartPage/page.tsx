@@ -6,11 +6,7 @@ import Link from "next/link";
 import { Trash2 } from "lucide-react";
 
 const CartPage: React.FC = () => {
-  const {
-    cartItems,
-    removeFromCart: useCartRemoveFromCart,
-    updateQuantity,
-  } = useCart();
+  const { cartItems, removeFromCart, updateQuantity } = useCart();
 
   const calculateTotal = () => {
     return cartItems.reduce((total, item) => {
@@ -27,7 +23,7 @@ const CartPage: React.FC = () => {
             Your Cart is Empty
           </h1>
           <p className="text-gray-600 mb-8">
-            Looks like you haven't added any items to your cart yet.
+            Looks like you haven&apos;t added any items to your cart yet.
           </p>
           <Link
             href="/ProductPage/AllProduct"
@@ -87,7 +83,7 @@ const CartPage: React.FC = () => {
                   </div>
 
                   <button
-                    onClick={() => useCartRemoveFromCart(item.id)}
+                    onClick={() => removeFromCart(item.id)}
                     className="text-red-500 hover:text-red-600"
                   >
                     <Trash2 className="w-5 h-5" />
