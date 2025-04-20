@@ -9,96 +9,119 @@ interface Product {
   image: string;
   tag: "New" | "Sales" | null;
   discountPrice: string | null;
+  description: string;
 }
 
 const products: Product[] = [
   {
     id: 1,
-    name: "Library Stool Chair",
+    name: "Beauty",
     price: "$20",
     image: "/p1.jpg",
     tag: "New",
     discountPrice: null,
+    description:
+      "A stylish and comfortable stool chair perfect for libraries and reading nooks. Features a sturdy wooden frame and cushioned seat.",
   },
   {
     id: 2,
-    name: "Library Stool Chair",
+    name: "Beauty",
     price: "$20",
-    image: "/p2.png",
+    image: "/p2.jpg",
     tag: "Sales",
     discountPrice: "$39",
+    description:
+      "Modern stool chair with ergonomic design, ideal for both casual seating and decorative purposes.",
   },
   {
     id: 3,
-    name: "Library Stool Chair",
+    name: "Beauty",
     price: "$20",
-    image: "/p3.png",
+    image: "/p3.jpg",
     tag: null,
     discountPrice: null,
+    description:
+      "Classic wooden stool chair with a minimalist design, suitable for various interior styles.",
   },
   {
     id: 4,
-    name: "Library Stool Chair",
+    name: "Gaming",
     price: "$20",
-    image: "/p4.png",
+    image: "/p4.jpg",
     tag: null,
     discountPrice: null,
+    description:
+      "Versatile stool chair with a contemporary look, perfect for small spaces and modern interiors.",
   },
   {
     id: 5,
-    name: "Library Stool Chair",
+    name: "Shampoo",
     price: "$20",
-    image: "/ti1.png",
+    image: "/ti1.jpg",
     tag: null,
     discountPrice: null,
+    description:
+      "Elegant stool chair featuring a unique design and premium materials for lasting comfort.",
   },
   {
     id: 6,
-    name: "Library Stool Chair",
+    name: "Hair Rollers",
     price: "$20",
-    image: "/ti2.png",
+    image: "/ti2.jpg",
     tag: "New",
     discountPrice: null,
+    description:
+      "Innovative stool chair with a sleek profile and comfortable seating experience.",
   },
   {
     id: 7,
-    name: "Library Stool Chair",
+    name: "Customized",
     price: "$20",
-    image: "/ti3.png",
+    image: "/ti3.jpg",
     tag: "Sales",
     discountPrice: "$39",
+    description:
+      "Premium stool chair with exceptional craftsmanship and attention to detail.",
   },
   {
     id: 8,
-    name: "Library Stool Chair",
+    name: "Mix Polish",
     price: "$20",
-    image: "/image9.png",
+    image: "/image9.jpg",
     tag: null,
     discountPrice: null,
+    description:
+      "Traditional stool chair with a timeless design and reliable construction.",
   },
   {
     id: 9,
-    name: "Library Stool Chair",
+    name: "Home & Kitchen",
     price: "$20",
-    image: "/image/h1.png",
+    image: "/image/h1.jpg",
     tag: null,
     discountPrice: null,
+    description:
+      "Contemporary stool chair that combines style and functionality for everyday use.",
   },
   {
     id: 10,
-    name: "Library Stool Chair",
+    name: "Nill Polish",
     price: "$20",
-    image: "/image/h2.png",
+    image: "/image/h2.jpg",
     tag: null,
     discountPrice: null,
+    description:
+      "Modern stool chair with a unique design that adds character to any space.",
   },
   {
     id: 11,
-    name: "Library Stool Chair",
+    name: "Men Cream",
     price: "$20",
-    image: "/image/h3.png",
+    image: "/image/h3.jpg",
     tag: null,
     discountPrice: null,
+    description:
+      "Stylish stool chair featuring premium materials and comfortable seating.",
   },
   {
     id: 12,
@@ -107,6 +130,8 @@ const products: Product[] = [
     image: "/image/h5.png",
     tag: null,
     discountPrice: null,
+    description:
+      "Elegant stool chair with a sophisticated design and superior comfort.",
   },
 ];
 
@@ -124,7 +149,7 @@ const AllProducts: React.FC = () => {
               className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
             >
               <div className="relative group">
-                <Link href="./SingleProduct">
+                <Link href={`/ProductPage/${product.id}`}>
                   <Image
                     src={product.image}
                     alt={product.name}
@@ -147,6 +172,9 @@ const AllProducts: React.FC = () => {
                 <h3 className="text-sm font-medium text-gray-800 text-center sm:text-left">
                   {product.name}
                 </h3>
+                <p className="text-xs text-gray-600 mt-1 text-center sm:text-left">
+                  {product.description}
+                </p>
                 <div className="flex justify-center sm:justify-start items-center mt-2">
                   <span className="text-lg font-bold text-gray-800">
                     {product.price}

@@ -22,7 +22,7 @@ const ContactForm: React.FC = () => {
               <div>
                 <h4 className="font-semibold text-gray-900">Address</h4>
                 <p className="text-gray-500">
-                  236 5th SE Avenue, New York NY10000, United States
+                  5101Bellefontaine Dr Arlington TX 76017
                 </p>
               </div>
             </div>
@@ -31,7 +31,7 @@ const ContactForm: React.FC = () => {
               <div>
                 <h4 className="font-semibold text-gray-900">Phone</h4>
                 <p className="text-gray-500">
-                  Mobile: +(84) 546-6789 <br />
+                  Mobile: 817-986-9786 <br />
                   Hotline: +(84) 456-6789
                 </p>
               </div>

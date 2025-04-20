@@ -4,6 +4,7 @@ import { FC, useState } from "react";
 import Image from "next/image";
 import { ShoppingCart, Menu, X } from "lucide-react";
 import Link from "next/link";
+import CartCounter from "./CartCounter";
 
 const Navbar: FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -22,22 +23,14 @@ const Navbar: FC = () => {
               height={32}
             />
             <span className="text-lg font-semibold text-gray-900">
-              Comforty
+              ilyana wholesale
             </span>
           </div>
 
           {/* Right - Cart & Hamburger */}
           <div className="flex items-center space-x-4">
             {/* Cart */}
-            <Link href="/CartPage">
-              <button className="relative hidden md:flex items-center bg-white border rounded-full px-4 py-2 shadow-sm hover:bg-gray-100">
-                <ShoppingCart className="w-5 h-5 text-gray-800 mr-2" />
-                <span className="text-gray-800 font-medium">Cart</span>
-                <span className="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 bg-teal-500 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">
-                  2
-                </span>
-              </button>
-            </Link>
+            <CartCounter />
 
             {/* Hamburger Menu */}
             <button
@@ -98,10 +91,10 @@ const Navbar: FC = () => {
             <span className="text-gray-500 font-medium block md:inline">
               Contact:{" "}
               <a
-                href="tel:+923002023688"
+                href="tel:+817-986-9786"
                 className="text-gray-900 font-semibold hover:text-teal-500 hover:underline"
               >
-                (+92) 300-202-3688
+                817-986-9786
               </a>
             </span>
           </div>

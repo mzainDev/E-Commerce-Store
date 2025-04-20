@@ -3,17 +3,17 @@ import Image from "next/image";
 const categories = [
   {
     id: 1,
-    imageUrl: "/image/h5.png",
+    imageUrl: "/image/h5.jpg",
     alt: "Orange Modern Chair",
   },
   {
     id: 2,
-    imageUrl: "/image/h3.png",
+    imageUrl: "/image/h3.jpg",
     alt: "White Armchair",
   },
   {
     id: 3,
-    imageUrl: "/image/h4.png",
+    imageUrl: "/image/h4.jpg",
     alt: "White Wooden Chair",
   },
   {

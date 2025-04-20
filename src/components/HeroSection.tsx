@@ -11,7 +11,7 @@ export default function HeroSection() {
             Welcome to Chairy
           </p>
           <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 text-center md:text-left">
-            Best Furniture Collection For Your Interior.
+            Best Product Collection For Your Interior.
           </h1>
           <div className="flex justify-center md:justify-start">
             <Button className="bg-teal-600 text-white hover:bg-teal-700 flex items-center space-x-2">
@@ -24,7 +24,7 @@ export default function HeroSection() {
         {/* Right Section: Chair Image */}
         <div className="flex justify-center">
           <Image
-            src="/image/Pimage.png"
+            src="/image/Pimage.jpg"
             alt="Chair"
             width={400}
             height={400}

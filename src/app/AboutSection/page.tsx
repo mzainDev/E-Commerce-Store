@@ -10,22 +10,26 @@ const AboutSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
           <div className="bg-teal-700 text-white p-6 sm:p-10 lg:p-20 rounded-md">
             <h2 className="text-xl sm:text-2xl font-bold mb-4">
-              About Us - Comforty
+              About Us - Products
             </h2>
-            <p className="mb-6 text-sm sm:text-base">
-              At Comforty, we believe the right chair can transform your space
-              and elevate your comfort. Specializing in ergonomic design,
-              premium materials, and modern aesthetics, we craft chairs that
-              seamlessly blend style with functionality.
+            <p className="mb-6 text-sm sm:tex t-base">
+              Design your dream product with our easy-to-use customization
+              tools. Choose colors, add text, upload images, and create
+              something truly unique—made just for you!
             </p>
             <Button className="bg-teal-600 text-white hover:bg-teal-700 flex items-center space-x-2">
               View collection
             </Button>
+            <div className="mt-4">
+              <h1 className="text-white text-3xl sm:text-4xl font-bold tracking-wide uppercase">
+                ilyana wholesale
+              </h1>
+            </div>
           </div>
           <div>
             <img
-              src="/image/h4.png"
-              alt="Chair Image"
+              src="/image/h4.jpg"
+              alt="Beauty"
               className="rounded-md w-full"
             />
           </div>

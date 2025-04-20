@@ -17,19 +17,19 @@ const FeaturedSec: React.FC = () => {
     {
       id: 2,
       label: "Sales",
-      image: "/p2.png", // Ensure this file exists in the /public folder
+      image: "/p2.jpg", // Ensure this file exists in the /public folder
       title: "Library Stool Chair",
       price: "$20 $30",
     },
     {
       id: 3,
-      image: "/p3.png", // Ensure this file exists
+      image: "/p3.jpg", // Ensure this file exists
       title: "Library Stool Chair",
       price: "$20",
     },
     {
       id: 4,
-      image: "/p4.png", // Ensure this file exists
+      image: "/p4.jpg", // Ensure this file exists
       title: "Library Stool Chair",
       price: "$20",
     },
@@ -71,7 +71,7 @@ const FeaturedSec: React.FC = () => {
               </div>
               {/* Add to Cart Button */}
               <div className="mt-2 flex justify-start">
-                <Link href="/SingleProduct">
+                <Link href={`/SingleProduct ${product.id}`}>
                   <Button variant="outline" size="icon">
                     <ShoppingCart className="hover:text-teal-500"/>
                   </Button>

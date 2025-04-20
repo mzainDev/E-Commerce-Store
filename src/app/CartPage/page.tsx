@@ -1,5 +1,9 @@
-/* eslint-disable @next/next/no-img-element */
+"use client";
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { RootState } from "@/app/redux/store";
+import { removeFromCart } from "@/app/redux/slices/CartSlice";
+import Image from "next/image";
 import {
   Card,
   CardHeader,
@@ -8,108 +12,136 @@ import {
   CardFooter,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { useCart } from "@/context/CartContext";
+import Link from "next/link";
+import { Trash2 } from "lucide-react";
 
 const CartPage: React.FC = () => {
-  const cartItems = [
-    {
-      id: 1,
-      name: "Library Stool Chair",
-      variant: "Ashen Slate/Cobalt Bliss",
-      size: "L",
-      quantity: 1,
-      price: 99,
-      image: "/ti3.png",
-    },
-    {
-      id: 2,
-      name: "Library Stool Chair",
-      variant: "Ashen Slate/Cobalt Bliss",
-      size: "L",
-      quantity: 1,
-      price: 99,
-      image: "/p3.png",
-    },
-  ];
+  const {
+    cartItems,
+    removeFromCart: useCartRemoveFromCart,
+    updateQuantity,
+  } = useCart();
+  const dispatch = useDispatch();
 
-  const subtotal = cartItems.reduce((total, item) => total + item.price, 0);
+  const calculateTotal = () => {
+    return cartItems.reduce((total, item) => {
+      const price = parseFloat(item.price.replace("$", ""));
+      return total + price * item.quantity;
+    }, 0);
+  };
+
+  if (cartItems.length === 0) {
+    return (
+      <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto text-center">
+          <h1 className="text-3xl font-bold text-gray-800 mb-4">
+            Your Cart is Empty
+          </h1>
+          <p className="text-gray-600 mb-8">
+            Looks like you haven't added any items to your cart yet.
+          </p>
+          <Link
+            href="/ProductPage/AllProduct"
+            className="inline-block bg-teal-500 text-white px-6 py-3 rounded-lg hover:bg-teal-600 transition-colors"
+          >
+            Continue Shopping
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-40">
-      <h1 className="text-2xl sm:text-3xl font-bold mb-8 text-center sm:text-left">
-        Your Cart
-      </h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {/* Cart Items Section */}
-        <div className="md:col-span-2">
-          {cartItems.map((item) => (
-            <Card key={item.id} className="mb-4">
-              <CardHeader>
-                <CardTitle className="text-lg">{item.name}</CardTitle>
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="w-full h-auto rounded-md"
-                />
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between">
-                  <div className="text-sm text-gray-500">
-                    <p className="mb-1">Variant: {item.variant}</p>
-                    <p className="mb-1">Size: {item.size}</p>
-                    <p className="mb-1">Quantity: {item.quantity}</p>
-                  </div>
-                  <p className="text-xl font-bold mt-4 sm:mt-0">
-                    ${item.price.toFixed(2)}
-                  </p>
-                </div>
-              </CardContent>
-              <CardFooter className="flex flex-wrap justify-end space-y-2 sm:space-y-0 sm:space-x-2">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="w-full sm:w-auto"
-                >
-                  Remove
-                </Button>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="w-full sm:w-auto"
-                >
-                  Update
-                </Button>
-              </CardFooter>
-            </Card>
-          ))}
-        </div>
+    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto">
+        <h1 className="text-3xl font-bold text-gray-800 mb-8">Shopping Cart</h1>
 
-        {/* Summary Section */}
-        <div>
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-lg">Summary</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="flex justify-between mb-2 text-sm">
-                <p>Subtotal</p>
-                <p>${subtotal.toFixed(2)}</p>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Cart Items */}
+          <div className="lg:col-span-2 space-y-4">
+            {cartItems.map((item) => (
+              <div
+                key={item.id}
+                className="bg-white rounded-lg shadow-md p-4 flex items-center space-x-4"
+              >
+                <div className="relative w-24 h-24">
+                  <Image
+                    src={item.image}
+                    alt={item.name}
+                    fill
+                    className="object-cover rounded-lg"
+                  />
+                </div>
+
+                <div className="flex-1">
+                  <h3 className="text-lg font-semibold text-gray-800">
+                    {item.name}
+                  </h3>
+                  <p className="text-gray-600">{item.price}</p>
+                </div>
+
+                <div className="flex items-center space-x-4">
+                  <div className="flex items-center border rounded-lg">
+                    <button
+                      onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                      className="px-3 py-1 hover:bg-gray-100"
+                    >
+                      -
+                    </button>
+                    <span className="px-3 py-1">{item.quantity}</span>
+                    <button
+                      onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                      className="px-3 py-1 hover:bg-gray-100"
+                    >
+                      +
+                    </button>
+                  </div>
+
+                  <button
+                    onClick={() => useCartRemoveFromCart(item.id)}
+                    className="text-red-500 hover:text-red-600"
+                  >
+                    <Trash2 className="w-5 h-5" />
+                  </button>
+                </div>
               </div>
-              <div className="flex justify-between mb-2 text-sm">
-                <p>Estimated Delivery & Handling</p>
-                <p>Free</p>
+            ))}
+          </div>
+
+          {/* Order Summary */}
+          <div className="bg-white rounded-lg shadow-md p-6 h-fit">
+            <h2 className="text-xl font-bold text-gray-800 mb-4">
+              Order Summary
+            </h2>
+
+            <div className="space-y-4">
+              <div className="flex justify-between">
+                <span className="text-gray-600">Subtotal</span>
+                <span className="font-semibold">
+                  ${calculateTotal().toFixed(2)}
+                </span>
               </div>
-              <hr className="my-4" />
-              <div className="flex justify-between font-bold text-lg">
-                <p>Total</p>
-                <p>${subtotal.toFixed(2)}</p>
+
+              <div className="flex justify-between">
+                <span className="text-gray-600">Shipping</span>
+                <span className="font-semibold">Free</span>
               </div>
-            </CardContent>
-            <CardFooter>
-              <Button variant="default" className="w-full">
-                Member Checkout
-              </Button>
-            </CardFooter>
-          </Card>
+
+              <div className="border-t pt-4">
+                <div className="flex justify-between">
+                  <span className="text-lg font-bold">Total</span>
+                  <span className="text-lg font-bold">
+                    ${calculateTotal().toFixed(2)}
+                  </span>
+                </div>
+              </div>
+
+              <button className="w-full bg-teal-500 text-white py-3 rounded-lg hover:bg-teal-600 transition-colors">
+                Proceed to Checkout
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
