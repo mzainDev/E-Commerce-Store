@@ -57,6 +57,8 @@ const NewsletterInstagram: React.FC = () => {
                 width={300}
                 height={160}
                 className="w-full h-32 sm:h-40 object-cover"
+                priority={index < 2}
+                quality={75}
               />
             </div>
           ))}
