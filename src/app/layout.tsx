@@ -4,7 +4,6 @@ import "./globals.css";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { ReduxProvider } from "./redux/Provider";
 import { CartProvider } from "@/context/CartContext";
 
 const geistSans = Geist({
@@ -32,14 +31,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ReduxProvider>
           <CartProvider>
             <TopBar />
             <Navbar />
             {children}
             <Footer />
           </CartProvider>
-        </ReduxProvider>
       </body>
     </html>
   );

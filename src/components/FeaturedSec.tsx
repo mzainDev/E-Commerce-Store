@@ -71,7 +71,7 @@ const FeaturedSec: React.FC = () => {
               </div>
               {/* Add to Cart Button */}
               <div className="mt-2 flex justify-start">
-                <Link href={`/SingleProduct ${product.id}`}>
+                <Link href={"./"}>
                   <Button variant="outline" size="icon">
                     <ShoppingCart className="hover:text-teal-500"/>
                   </Button>

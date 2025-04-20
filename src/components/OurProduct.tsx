@@ -58,7 +58,7 @@ export default function OurProduct() {
 
               {/* Add to Cart */}
               <div className="mt-4 flex justify-end">
-                <Link href={`/SingleProduct/${p.id}`}>
+                <Link href={"./"}>
                   <Button variant="outline" size="icon">
                     <ShoppingCart className="hover:text-teal-500" />
                   </Button>
